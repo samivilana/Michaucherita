@@ -28,6 +28,7 @@ public class Acceder extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+	
 	}
 
 	/**
@@ -37,6 +38,7 @@ public class Acceder extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		System.out.println("prueba");
+		System.out.println("prueba numero xxxxx");
 	}
 
 }
