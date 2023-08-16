@@ -38,7 +38,7 @@ public class Acceder extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		System.out.println("prueba");
-		System.out.println("prueba numero xxxxx");
+		System.out.println("INGRESO POR POST");
 	}
 
 }
