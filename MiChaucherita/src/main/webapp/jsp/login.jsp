@@ -12,13 +12,12 @@
 	rel="stylesheet"
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"
-	>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 <script src="https://kit.fontawesome.com/ef6a53a4a6.js"
 	crossorigin="anonymous"></script>
 </head>
 <body>
-
+	<%@include file='../templates/banner.html'%>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-xl-10 col-lg-12 col-md-9">
