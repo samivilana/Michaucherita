@@ -23,8 +23,8 @@ public class Persona implements Serializable {
 	@Column(name="usuario")
 	private String usuario;
 	
-	@Column(name="contraseña")
-	private String contraseña;
+	@Column(name="password")
+	private String password;
 //private List<CuentaBancaria> cuentas;
 
 	public Persona() {
@@ -47,24 +47,24 @@ public class Persona implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getPassword() {
+		return password;
 	}
 
 	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+		this.password = password;
 	}
 
 	public Persona(Integer id, String usuario, String contraseña) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
-		this.contraseña = contraseña;
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [id=" + id + ", usuario=" + usuario + ", contraseña=" + contraseña + "]";
+		return "Persona [id=" + id + ", usuario=" + usuario + ", password=" + password + "]";
 	}
 	
 	

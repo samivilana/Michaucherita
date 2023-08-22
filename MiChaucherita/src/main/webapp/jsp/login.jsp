@@ -24,7 +24,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div id="formContent">
-                                        <form action="" method="POST">
+                                        <form action="../LoginController?ruta=ingresar" method="POST">
                                             <fieldset>
                                                 <legend>Login</legend>
                                                 <p>Usuario</p>
