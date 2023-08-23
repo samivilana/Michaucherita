@@ -4,6 +4,7 @@
 	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 	<class>modelo.entidades.Persona</class>
 	<class>modelo.entidades.Cuenta</class>
+	<class>modelo.entidades.Categoria</class>
 	
 	<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3308/michaucherita"/> <!-- aqui deben configurar el puerto segun ustedes tengan, en el mio esta cambiado :c -->
