@@ -52,14 +52,14 @@ public class Persona implements Serializable {
 	}
 
 	public void setContraseña(String contraseña) {
-		this.password = password;
+		this.password = contraseña;
 	}
 
 	public Persona(Integer id, String usuario, String contraseña) {
 		super();
 		this.id = id;
 		this.usuario = usuario;
-		this.password = password;
+		this.password = contraseña;
 	}
 
 	@Override
