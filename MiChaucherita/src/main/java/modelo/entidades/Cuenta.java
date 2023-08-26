@@ -1,12 +1,18 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +30,10 @@ public class Cuenta implements Serializable {
 	
 	@Column(name="saldototal")
 	private double saldototal;
+	
+	@ManyToOne(cascade =CascadeType.REFRESH )
+	@JoinColumn(name="propietario")
+	private Persona propietario;
 	
 	//no entiendo bien lo de ingreso,egreso,egreso/ingreso a donde perteneceria eso :c
 

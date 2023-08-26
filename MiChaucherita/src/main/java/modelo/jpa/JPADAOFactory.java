@@ -16,7 +16,7 @@ public class JPADAOFactory extends DAOFactory {
 	@Override
 	public CuentaDAO getCuentaDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new JPACuentaDAO();
 	}
 //
 }

@@ -17,15 +17,17 @@
 </head>
 
 <body>
-	<%@include file='../templates/banner.html'%>
-    <nav class="navbar navbar-dark bg-dark"></nav>
+	<%@include file='../templates/banner_inside.html'%>
+
 	<h1 class="text-center">Registro de Ingreso</h1>
     <form class="text-center" method="" action="">
         <label for="txtMonto">Monto</label><br>
         <input type="number" name="txtMonto" id="txtMonto" /><br>
 
-        <label for="txtDescripcion">Descripción</label><br>
-        <input type="text" name="txtDescripcion" id="txtDescripcion" /><br>
+        <label for="cmbCategoría">Cuentas</label><br>
+        <select name="categoria" id="cmbCuentas">
+            <option value="1">poner cuentas</option>
+        </select><br>
 
         <label for="txtDescripcion">Descripción</label><br>
         <input type="text" name="txtDescripcion" id="txtDescripcion" /><br>

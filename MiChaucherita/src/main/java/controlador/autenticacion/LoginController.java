@@ -91,7 +91,7 @@ public class LoginController extends HttpServlet {
 			//response.sendRedirect("GestorPersonaController?ruta=listar");
 			// request.getRequestDispatcher("ListarPersonaController").forward(request,
 			// response);
-			response.sendRedirect("ingreso.jsp");
+			response.sendRedirect("jsp/ingreso.jsp");
 			return;
 
 		} else {

@@ -24,7 +24,7 @@
 				<div class="card o-hidden border-0 shadow-lg my-5">
 					<div class="row">
 						<div class="col-lg-6 d-none d-lg-block ">
-							<img src="img/logo.jpg" alt="">
+							<img src="${pageContext.request.contextPath}/img/logo.jpg" alt="">
 						</div>
 						<div class="col-lg-6">
 							<div class="p-5">
