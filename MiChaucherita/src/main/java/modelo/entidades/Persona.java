@@ -30,6 +30,7 @@ public class Persona implements Serializable {
 	public Persona() {
 
 	}
+	
 
 	public Integer getId() {
 		return id;

@@ -1,5 +1,8 @@
 package modelo.jpa;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import modelo.DAO.PersonaDAO;
@@ -12,13 +15,14 @@ public class JPAPersonaDAO extends JPAGenericDAO<Persona, Integer> implements Pe
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
-	public Persona autorizar(String nombre, String password) {
-		String sentencia = "SELECT p FROM Persona p WHERE p.nombre= :nombre AND p.clave= :clave";
+	public Persona autorizar(String usuario, String password) {
+		String sentencia = "SELECT p FROM Persona p WHERE p.usuario= :usuario AND p.password= :password";
 
 		Query query = em.createQuery(sentencia);
 		// Parametros ....
-		query.setParameter("nombre", nombre);
+		query.setParameter("usuario", usuario);
 		query.setParameter("password", password);
 
 		Persona personaAutorizada = (Persona) query.getSingleResult();

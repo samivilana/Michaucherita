@@ -1,6 +1,10 @@
 package controlador.autenticacion;
 
 import java.io.IOException;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,6 +69,7 @@ public class LoginController extends HttpServlet {
 	}
 
 	private void ingresar(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
 		// 1.- Obtener datos que me envían en la solicitud
 
 		String nombre = request.getParameter("usuario");
@@ -80,11 +85,13 @@ public class LoginController extends HttpServlet {
 			// Crear la sesion
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogeado", personaAutenticada);
+			System.out.println("LA PERSONA FUE AUTORIZADA");
 
 			// 3.- Llamo a la Vista
-			response.sendRedirect("GestorPersonaController?ruta=listar");
+			//response.sendRedirect("GestorPersonaController?ruta=listar");
 			// request.getRequestDispatcher("ListarPersonaController").forward(request,
 			// response);
+			response.sendRedirect("ingreso.jsp");
 			return;
 
 		} else {
