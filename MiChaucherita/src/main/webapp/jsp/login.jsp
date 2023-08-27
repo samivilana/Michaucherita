@@ -66,8 +66,8 @@
 						</div>
 						<div class="input-group mb-5 d-flex justify-content-between"></div>
 						<div class="input-group mb-3">
-							<button class="btn btn-lg btn-success w-100 fs-6">
-								Iniciar sesión</button>
+							<button  class="btn btn-lg btn-success w-100 fs-6">
+								Iniciar sesión </button>
 						</div>
 					</form>
 				</div>
