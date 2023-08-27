@@ -73,7 +73,7 @@
                         <img src="${pageContext.request.contextPath}/img/ingresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/ingreso.html"><p>Ingreso</p></a>
+                                <a href="../html/ingreso.html" style="text-decoration:none;"><p>Ingreso</p></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <img src="${pageContext.request.contextPath}/img/egresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/egreso.html"><p>Egreso</p></a>
+                                <a href="../html/egreso.html" style="text-decoration:none;"><p>Egreso</p></a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/transferencia.html"><p>Transferencia</p></a>
+                                <a href="../html/transferencia.html" style="text-decoration:none;"><p>Transferencia</p></a>
                             </div>
                         </div>
                     </div>
