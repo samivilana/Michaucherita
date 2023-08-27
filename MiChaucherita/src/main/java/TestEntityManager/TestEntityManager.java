@@ -4,6 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.apache.catalina.webresources.Cache;
+
+import modelo.entidades.Categoria;
 import modelo.entidades.Cuenta;
 import modelo.entidades.Persona;
 
@@ -31,7 +34,35 @@ public class TestEntityManager {
 		em.persist(Efectivo);
 		em.getTransaction().commit();
 		
+		Categoria comida = new Categoria("Comida");
+		em.getTransaction().begin();
+		em.persist(comida);
+		em.getTransaction().commit();
 		
+		Categoria transporte = new Categoria("Transporte");
+		em.getTransaction().begin();
+		em.persist(transporte);
+		em.getTransaction().commit();
+		
+		Categoria nomina = new Categoria("Nomina");
+		em.getTransaction().begin();
+		em.persist(nomina);
+		em.getTransaction().commit();
+		
+		Categoria transferenciaEntreCuentas = new Categoria("Transferencia entre cuentas");
+		em.getTransaction().begin();
+		em.persist(transferenciaEntreCuentas);
+		em.getTransaction().commit();
+		
+		Categoria cuidadoPersonal = new Categoria("Cuidado personal");
+		em.getTransaction().begin();
+		em.persist(cuidadoPersonal);
+		em.getTransaction().commit();
+		
+		Categoria varios = new Categoria("Varios");
+		em.getTransaction().begin();
+		em.persist(varios);
+		em.getTransaction().commit();
 	}
 
 }

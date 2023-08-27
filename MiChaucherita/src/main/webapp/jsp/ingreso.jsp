@@ -67,32 +67,39 @@
 		
 			<div class="form-group">
 				<label for="monto">Monto</label> <input type="text"
-					class="form-control" id="monto" placeholder="Ingrese el monto"
+					class="form-control" id="monto" name="monto" placeholder="Ingrese el monto"
 					required>
 			</div>
 			<div class="form-group">
 				<label for="cuentas">Cuentas</label> <select class="form-control"
-					id="cuentas" required>
-					<option value="" disabled selected>Elige una cuenta</option>
+					id="cuentas" name="cuentaDestino" required>
+					<option value="" >Elige una cuenta</option>
+					<c:forEach items = "${cuentas}" var ="cuentaDestino">
+						<option value = "${cuentaDestino.id}">${cuentaDestino.nombreCuenta}</option>
+						
+					</c:forEach>
 					
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="descripcion">Descripción</label> <input type="text"
-					class="form-control" id="descripcion"
+					class="form-control" id="descripcion" name = "descripcion"
 					placeholder="Ingrese la descripción" required>
 			</div>
 			<div class="form-group">
 				<label for="categoria">Categoría</label> <select
-					class="form-control" id="categoria" required>
-					<option value="" disabled selected>Elige una categoría</option>
+					class="form-control" id="categoria" name = "categoria" required>
+					<option value="" >Elige una categoría</option>
+					<c:forEach items="${categorias}" var="categoria">
+						<option value ="${categoria.id}">${categoria.descripcion}</option>
+					</c:forEach>
 					
 					
 				</select>
 			</div>
 			<div class="form-group">
 				<label for="fecha">Fecha</label> <input type="date"
-					class="form-control" id="fecha" required>
+					class="form-control" id="fecha" name = "fecha" required>
 			</div>
 			<div class="d-grid gap-2 col-20 mx-auto">
 				<button class="btn btn-success" type="button">Registrar
