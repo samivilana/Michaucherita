@@ -13,14 +13,16 @@ public class JPACuentaDAO extends JPAGenericDAO<Cuenta, Integer> implements Cuen
 		super(Cuenta.class);
 		// TODO Auto-generated constructor stub
 	}
-
-	public List<String> listarCuentas(Integer id){
-		String sentencia = "SELECT c.nombreCuenta FROM Cuenta c WHERE c.propietario = :propietario";
+	
+	public List<Cuenta> listarCuentas(){
+		String sentencia = "SELECT * FROM Cuenta c ";
 		
-		Query query = em.createQuery(sentencia);
-		query.setParameter("propietario", id);
-		List<String> nombresCuentas = query.getResultList();
-		return nombresCuentas;
+		Query query = em.createQuery(sentencia);		
+		//List<Cuenta> nombCuentas = query.getResultList();
+		List<Cuenta> cuentas = query.getResultList();
+		return cuentas;
 	}
+	
+	
 
 }

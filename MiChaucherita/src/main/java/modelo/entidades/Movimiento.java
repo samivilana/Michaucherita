@@ -6,7 +6,9 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
-@Table(name="movimiento")
+@Table(name="Movimiento")
 public class Movimiento implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,8 +29,12 @@ public class Movimiento implements Serializable {
 	@Column(name="monto")
 	private double monto;
 	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private TipoMovimiento tipo;
+	
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cuenta_destino")
@@ -37,15 +43,18 @@ public class Movimiento implements Serializable {
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cuenta_origen")
 	private Cuenta cuentaOrigen;
-	;
+	
 	@Column(name="descripcion")
 	private String descripcion;
 	
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	
-	//no cacho como seria aqui
-	private Categoria categoria;
+
+
+	public Movimiento() {
+		
+	}
 
 	public int getId() {
 		return id;
@@ -54,6 +63,7 @@ public class Movimiento implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 
 	public double getMonto() {
 		return monto;
@@ -71,6 +81,14 @@ public class Movimiento implements Serializable {
 		this.tipo = tipo;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
 	public Cuenta getCuentaDestino() {
 		return cuentaDestino;
 	}
@@ -82,7 +100,7 @@ public class Movimiento implements Serializable {
 	public Cuenta getCuentaOrigen() {
 		return cuentaOrigen;
 	}
-
+	
 	public void setCuentaOrigen(Cuenta cuentaOrigen) {
 		this.cuentaOrigen = cuentaOrigen;
 	}
@@ -101,14 +119,6 @@ public class Movimiento implements Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
 	}
 
 	@Override

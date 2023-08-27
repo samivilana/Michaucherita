@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import modelo.entidades.Cuenta;
 import modelo.entidades.Persona;
 
 public class TestEntityManager {
@@ -18,6 +19,18 @@ public class TestEntityManager {
 		em.getTransaction().begin();
 		em.persist(p1);
 		em.getTransaction().commit();
+		
+		//Insertar cuentas
+		Cuenta Pichincha = new Cuenta("Pichincha",1000);
+		em.getTransaction().begin();
+		em.persist(Pichincha);
+		em.getTransaction().commit();
+		
+		Cuenta Efectivo = new Cuenta("Efectivo",500);
+		em.getTransaction().begin();
+		em.persist(Efectivo);
+		em.getTransaction().commit();
+		
 		
 	}
 

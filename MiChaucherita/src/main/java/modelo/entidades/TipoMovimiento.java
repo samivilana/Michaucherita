@@ -4,10 +4,11 @@ public enum TipoMovimiento {
 	INGRESO ("INGRESO", 1),
 	GASTO ("GASTO", 2),
 	TRANSFERENCIA ("TRANSFERENCIA",3);
+	
 	private String nombreTipoMovimiento;
 	private int idTipo;
 	
-	private TipoMovimiento(String nombreTipo, int idTipo) {
+	TipoMovimiento(String nombreTipo, int idTipo) {
 		this.nombreTipoMovimiento = nombreTipo;
 		this.idTipo = idTipo;
 	}

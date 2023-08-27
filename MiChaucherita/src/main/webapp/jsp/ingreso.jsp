@@ -20,13 +20,17 @@
 	<%@include file='../templates/banner_inside.html'%>
 
 	<h1 class="text-center">Registro de Ingreso</h1>
-    <form class="text-center" method="" action="">
+    <form class="text-center" action="../cuentaController?ruta=listarCuentas" method="POST">
         <label for="txtMonto">Monto</label><br>
         <input type="number" name="txtMonto" id="txtMonto" /><br>
 
-        <label for="cmbCategoría">Cuentas</label><br>
-        <select name="categoria" id="cmbCuentas">
-            <option value="1">poner cuentas</option>
+        <label for="cmbCuenta">Cuentas</label><br>
+        
+        <select name="cuenta" id="cmbCuentas">
+        	<c:forEach items="${cuentas}" var="cuenta">
+					<option value="${cuenta.id}">${cuenta.nombreCuenta}</option>
+			</c:forEach> 
+			           
         </select><br>
 
         <label for="txtDescripcion">Descripción</label><br>
@@ -39,6 +43,7 @@
         
         <label for="cmbFecha">Fecha</label><br>
         <input type="date" name="cmbFecha" id="cmbFecha"/><br>
+    </form>
     </form>
 </body>
 </html>
