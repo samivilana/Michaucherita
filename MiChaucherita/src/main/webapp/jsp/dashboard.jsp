@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-success">
         <div class="container">
             <a href="#" class="navbar-brand mb-0 h1">
-                <img class="d-inline-block align-top" src="../img/iconWallet.png" width="30" height="30"
+                <img class="d-inline-block align-top" src="${pageContext.request.contextPath}/img/iconWallet.png" width="30" height="30"
                     alt="wallet-image">
                 Mi Chaucherita Web
             </a>
@@ -67,10 +67,10 @@
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                 <div class="col">
                     <div class="card shadow-sm border rounded-4 p-3 bg-white">
-                        <img src="../img/ingresos.png" class="card-body" alt="img-cuentas">
+                        <img src="${pageContext.request.contextPath}/img/ingresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
                                 <a href="../html/ingreso.html"><p>Ingreso</p></a>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col">
                     <div class="card shadow-sm border rounded-4 p-3 bg-white">
-                        <img src="../img/egresos.png" class="card-body" alt="img-cuentas">
+                        <img src="${pageContext.request.contextPath}/img/egresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
                                 <a href="../html/egreso.html"><p>Egreso</p></a>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="col">
                     <div class="card shadow-sm border rounded-4 p-3 bg-white">
-                        <img src="../img/transferencias.png" class="card-body" alt="img-cuentas">
+                        <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
                                 <a href="../html/transferencia.html"><p>Transferencia</p></a>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col">
                     <div class="card shadow-sm border rounded-4 p-3 bg-white">
-                        <img src="../img/cuentas.png" class="card-body" alt="img-cuentas">
+                        <img src="${pageContext.request.contextPath}/img/cuentas.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
                                 <a href="#"><p>Cuentas</p></a>

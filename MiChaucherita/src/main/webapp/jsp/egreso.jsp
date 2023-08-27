@@ -13,7 +13,7 @@
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css" />
+	href="${pageContext.request.contextPath}/css/ingreso.css" />
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css" />

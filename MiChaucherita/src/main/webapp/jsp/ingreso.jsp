@@ -13,7 +13,7 @@
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
 	crossorigin="anonymous">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css" />
+	href="${pageContext.request.contextPath}/css/ingreso.css" />
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/styles.css" />
@@ -41,11 +41,11 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item active"><a href="../html/main.html"
+						<li class="nav-item active"><a href="../main.html"
 							class="nav-link active"> Inicio </a></li>
-						<li class="nav-item active"><a href="../html/ingreso.html"
+						<li class="nav-item active"><a href="../ingreso.jsp"
 							class="nav-link active"> Ingreso </a></li>
-						<li class="nav-item active"><a href="../html/egreso.html"
+						<li class="nav-item active"><a href="../egreso.jsp"
 							class="nav-link active"> Egreso </a></li>
 						<li class="nav-item active"><a
 							href="../html/transferencia.html" class="nav-link active">
@@ -64,6 +64,7 @@
 		<h1 class="text-center">Registro de Ingreso</h1>
 		
 		<form action="" method="POST">
+		
 			<div class="form-group">
 				<label for="monto">Monto</label> <input type="text"
 					class="form-control" id="monto" placeholder="Ingrese el monto"
@@ -97,6 +98,7 @@
 				<button class="btn btn-success" type="button">Registrar
 					Ingreso</button>
 			</div>
+			
 		</form>
 	</div>
 	<script
