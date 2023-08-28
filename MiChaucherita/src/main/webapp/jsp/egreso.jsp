@@ -81,6 +81,8 @@
             <div class="form-group">
                 <label for="cuentas">Cuentas</label>
                 <select class="form-control" id="cuentas" required>
+                 <option> Pichincha </option>
+                    <option> Efectivo </option>
                     <option value="" disabled selected>Elige una cuenta</option>
                 </select>
             </div>
@@ -91,6 +93,11 @@
             <div class="form-group">
                 <label for="categoria">Categoría</label>
                 <select class="form-control" id="categoria" required>
+                    
+                    <option> Salud </option>
+                    <option> Eduación </option>
+                    <option> Transporte </option>
+                    <option> Alimentación </option>
                     <option value="" disabled selected>Elige una categoría</option>
                 </select>
             </div>

@@ -97,14 +97,7 @@ public class MovimientoController extends HttpServlet {
 		cuentaDestino.setSaldototal(cuentaDestino.getSaldototal()+ monto);
 		DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
 		
-		//this.showDashboard(request, response);
 		
-		
-		
-
-		// 2.- Llamo al Modelo para obtener datos
-		
-		// 3.- Llamo a la Vista
 
 
 	}

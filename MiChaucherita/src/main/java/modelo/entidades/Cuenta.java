@@ -30,12 +30,18 @@ public class Cuenta implements Serializable {
 	
 	@Column(name="saldototal")
 	private double saldototal;
+	
+	
+	
+	
+	
+	
 	/*
 	@ManyToOne(cascade =CascadeType.REFRESH )
 	@JoinColumn(name="propietario")
 	private Persona propietario;
 	*/
-	//no entiendo bien lo de ingreso,egreso,egreso/ingreso a donde perteneceria eso :c
+
 
 	public Cuenta() {
 

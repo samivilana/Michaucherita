@@ -102,7 +102,7 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("cuentas", nombresCuentas);
 			request.setAttribute("categorias",nombreCategorias);;
 			
-			response.sendRedirect("jsp/ingreso.jsp");
+			response.sendRedirect("jsp/dashboard.jsp");
 			return;
 
 		} else {
