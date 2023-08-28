@@ -50,7 +50,7 @@
 						<li class="nav-item active"><a
 							href="transferencia.jsp" class="nav-link active">
 								Transferencia </a></li>
-						<li class="nav-item active"><a href="#"
+						<li class="nav-item active"><a href="cuentas.jsp"
 							class="nav-link active"> Cuentas </a></li>
 					</ul>
 				</div>

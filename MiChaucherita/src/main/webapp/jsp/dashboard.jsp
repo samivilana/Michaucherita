@@ -56,7 +56,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="#" class="nav-link active">
+                        <a href="cuentas.jsp" class="nav-link active">
                             Cuentas
                         </a>
                     </li>
