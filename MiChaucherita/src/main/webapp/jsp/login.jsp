@@ -24,15 +24,13 @@
 
 <body>
 	
-	<!----------------------- Main Container -------------------------->
-
+	
 	<div
 		class="container d-flex justify-content-center align-items-center min-vh-100">
 		<!----------------------- Login Container -------------------------->
 
 		<div class="row border rounded-5 p-3 bg-white shadow box-area">
-			<!--------------------------- Left Box ----------------------------->
-
+			
 			<div
 				class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box bg-success">
 				<div class="featured-image mb-3">

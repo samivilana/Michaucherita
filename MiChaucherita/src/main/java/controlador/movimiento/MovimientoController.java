@@ -122,14 +122,11 @@ public class MovimientoController extends HttpServlet {
 		// 1.- Obtener datos que me envían en la solicitud
 
 		// 2.- Llamo al Modelo para obtener datos
-		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
-		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
+		
 		
 
 		// 3.- Llamo a la Vista
-		request.setAttribute("cuentas", nombresCuentas);
-		request.setAttribute("categorias",nombreCategorias);;
-		request.getRequestDispatcher("/jsp/ingreso.jsp").forward(request, response);
+		
 
 	}
 

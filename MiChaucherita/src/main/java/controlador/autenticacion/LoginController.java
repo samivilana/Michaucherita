@@ -1,6 +1,7 @@
 package controlador.autenticacion;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modelo.DAO.DAOFactory;
+import modelo.entidades.Categoria;
+import modelo.entidades.Cuenta;
 import modelo.entidades.Persona;
 
 
@@ -86,11 +90,18 @@ public class LoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("usuarioLogeado", personaAutenticada);
 			System.out.println("LA PERSONA FUE AUTORIZADA");
-
+			//Llamo al modelo para obtener los datos
+			List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+			List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
+			
+			
 			// 3.- Llamo a la Vista
 			//response.sendRedirect("GestorPersonaController?ruta=listar");
 			// request.getRequestDispatcher("ListarPersonaController").forward(request,
 			// response);
+			request.setAttribute("cuentas", nombresCuentas);
+			request.setAttribute("categorias",nombreCategorias);;
+			
 			response.sendRedirect("jsp/ingreso.jsp");
 			return;
 

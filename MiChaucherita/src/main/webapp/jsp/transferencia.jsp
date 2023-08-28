@@ -29,7 +29,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-success">
             <div class="container">
-                <a href="#" class="navbar-brand mb-0 h1">
+                <a href="dashboard.jsp" class="navbar-brand mb-0 h1">
                     <img class="d-inline-block align-top" src="../img/iconWallet.png" width="30" height="30"
                         alt="wallet-image">
                     Mi Chaucherita Web
@@ -41,22 +41,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a href="../html/main.html" class="nav-link active">
+                            <a href="dashboard.jsp" class="nav-link active">
                                 Inicio
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="../html/ingreso.html" class="nav-link active">
+                            <a href="ingreso.jsp" class="nav-link active">
                                 Ingreso
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="../html/egreso.html" class="nav-link active">
+                            <a href="egreso.jsp" class="nav-link active">
                                 Egreso
                             </a>
                         </li>
                         <li class="nav-item active">
-                            <a href="../html/transferencia.html" class="nav-link active">
+                            <a href="transferencia.jsp" class="nav-link active">
                                 Transferencia
                             </a>
                         </li>

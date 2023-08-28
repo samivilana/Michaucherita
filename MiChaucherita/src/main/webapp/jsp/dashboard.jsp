@@ -24,7 +24,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-success">
         <div class="container">
-            <a href="#" class="navbar-brand mb-0 h1">
+            <a href="dashboard.jsp" class="navbar-brand mb-0 h1">
                 <img class="d-inline-block align-top" src="${pageContext.request.contextPath}/img/iconWallet.png" width="30" height="30"
                     alt="wallet-image">
                 Mi Chaucherita Web
@@ -36,22 +36,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="#" class="nav-link active">
+                        <a href="dashboard.jsp" class="nav-link active">
                             Inicio
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="../html/ingreso.html" class="nav-link active">
+                        <a href="ingreso.jsp" class="nav-link active">
                             Ingreso
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="../html/egreso.html" class="nav-link active">
+                        <a href="egreso.jsp" class="nav-link active">
                             Egreso
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="../html/transferencia.html" class="nav-link active">
+                        <a href="transferencia.jsp" class="nav-link active">
                             Transferencia
                         </a>
                     </li>
@@ -73,7 +73,7 @@
                         <img src="${pageContext.request.contextPath}/img/ingresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/ingreso.html" style="text-decoration:none;"><p>Ingreso</p></a>
+                                <a href="ingreso.jsp" style="text-decoration:none;"><p>Ingreso</p></a>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <img src="${pageContext.request.contextPath}/img/egresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/egreso.html" style="text-decoration:none;"><p>Egreso</p></a>
+                                <a href="egreso.jsp" style="text-decoration:none;"><p>Egreso</p></a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../html/transferencia.html" style="text-decoration:none;"><p>Transferencia</p></a>
+                                <a href="transferencia.jsp" style="text-decoration:none;"><p>Transferencia</p></a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
                         <img src="${pageContext.request.contextPath}/img/cuentas.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="#"><p>Cuentas</p></a>
+                                <a href=""><p>Cuentas</p></a>
                             </div>
                         </div>
                     </div>

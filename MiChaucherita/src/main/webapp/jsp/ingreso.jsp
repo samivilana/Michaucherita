@@ -29,7 +29,7 @@
 	<header>
 		<nav class="navbar navbar-expand-sm navbar-dark bg-success">
 			<div class="container">
-				<a href="#" class="navbar-brand mb-0 h1"> <img
+				<a href="dashboard.jsp" class="navbar-brand mb-0 h1"> <img
 					class="d-inline-block align-top" src="../img/iconWallet.png"
 					width="30" height="30" alt="wallet-image"> Mi Chaucherita Web
 				</a>
@@ -41,14 +41,14 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item active"><a href="../main.html"
+						<li class="nav-item active"><a href="dashboard.jsp"
 							class="nav-link active"> Inicio </a></li>
-						<li class="nav-item active"><a href="../ingreso.jsp"
+						<li class="nav-item active"><a href="ingreso.jsp"
 							class="nav-link active"> Ingreso </a></li>
-						<li class="nav-item active"><a href="../egreso.jsp"
+						<li class="nav-item active"><a href="egreso.jsp"
 							class="nav-link active"> Egreso </a></li>
 						<li class="nav-item active"><a
-							href="../html/transferencia.html" class="nav-link active">
+							href="transferencia.jsp" class="nav-link active">
 								Transferencia </a></li>
 						<li class="nav-item active"><a href="#"
 							class="nav-link active"> Cuentas </a></li>
@@ -75,7 +75,7 @@
 					id="cuentas" name="cuentaDestino" required>
 					<option value="" >Elige una cuenta</option>
 					<c:forEach items = "${cuentas}" var ="cuentaDestino">
-						<option value = "${cuentaDestino.id}">${cuentaDestino.nombreCuenta}</option>
+						<option value = "${cuentaDestino.id}">${cuentaDestino.getNombreCuenta()}</option>
 						
 					</c:forEach>
 					
