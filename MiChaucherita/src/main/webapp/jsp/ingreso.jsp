@@ -63,7 +63,7 @@
 
 		<h1 class="text-center">Registro de Ingreso</h1>
 		
-		<form action="" method="POST">
+		<form action="MovimientoController?ruta=registrarIngreso" method="POST">
 		
 			<div class="form-group">
 				<label for="monto">Monto</label> <input type="text"
@@ -90,7 +90,7 @@
 			<div class="form-group">
 				<label for="categoria">Categoría</label> <select
 					class="form-control" id="categoria" name = "categoria" required>
-				 <option> Salud </option>                    
+				                 
                     <option value="" disabled selected>Elige una categoría</option>
 					<c:forEach items="${categorias}" var="categoria">
 						<option value ="${categoria.id}">${categoria.descripcion}</option>
@@ -104,7 +104,7 @@
 					class="form-control" id="fecha" name = "fecha" required>
 			</div>
 			<div class="d-grid gap-2 col-20 mx-auto">
-				<button class="btn btn-success" type="button">Registrar
+				<button class="btn btn-success" type="submit">Registrar
 					Ingreso</button>
 			</div>
 			

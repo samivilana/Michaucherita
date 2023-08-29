@@ -71,10 +71,10 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID>{
 		
 		em.getTransaction().begin();
 		try {
-			em.remove(entity);
+			em.merge(entity);
 			em.getTransaction().commit();
 		}catch (Exception e) {
-			System.err.println("error de eliminar");
+			
 			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}

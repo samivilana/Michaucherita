@@ -9,6 +9,7 @@ import org.apache.catalina.webresources.Cache;
 import modelo.entidades.Categoria;
 import modelo.entidades.Cuenta;
 import modelo.entidades.Persona;
+import modelo.entidades.TipoCategoria;
 
 public class TestEntityManager {
 
@@ -34,32 +35,32 @@ public class TestEntityManager {
 		em.persist(Efectivo);
 		em.getTransaction().commit();
 		
-		Categoria comida = new Categoria("Comida");
+		Categoria comida = new Categoria("Comida", TipoCategoria.GASTO);
 		em.getTransaction().begin();
 		em.persist(comida);
 		em.getTransaction().commit();
 		
-		Categoria transporte = new Categoria("Transporte");
+		Categoria transporte = new Categoria("Transporte", TipoCategoria.GASTO);
 		em.getTransaction().begin();
 		em.persist(transporte);
 		em.getTransaction().commit();
 		
-		Categoria nomina = new Categoria("Nomina");
+		Categoria nomina = new Categoria("Nomina", TipoCategoria.INGRESO);
 		em.getTransaction().begin();
 		em.persist(nomina);
 		em.getTransaction().commit();
 		
-		Categoria transferenciaEntreCuentas = new Categoria("Transferencia entre cuentas");
+		Categoria transferenciaEntreCuentas = new Categoria("Transferencia entre cuentas", TipoCategoria.TRANSFERENCIA);
 		em.getTransaction().begin();
 		em.persist(transferenciaEntreCuentas);
 		em.getTransaction().commit();
 		
-		Categoria cuidadoPersonal = new Categoria("Cuidado personal");
+		Categoria cuidadoPersonal = new Categoria("Cuidado personal", TipoCategoria.GASTO);
 		em.getTransaction().begin();
 		em.persist(cuidadoPersonal);
 		em.getTransaction().commit();
 		
-		Categoria varios = new Categoria("Varios");
+		Categoria varios = new Categoria("Varios", TipoCategoria.GASTO);
 		em.getTransaction().begin();
 		em.persist(varios);
 		em.getTransaction().commit();

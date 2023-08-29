@@ -12,14 +12,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import exception.MovimientoException;
+
 import modelo.DAO.DAOFactory;
 import modelo.entidades.Categoria;
 import modelo.entidades.Cuenta;
 import modelo.entidades.Movimiento;
+import modelo.entidades.TipoCategoria;
 import modelo.entidades.TipoMovimiento;
 
-@WebServlet("/movimientoController")
+@WebServlet("/MovimientoController")
 public class MovimientoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -79,18 +80,22 @@ public class MovimientoController extends HttpServlet {
 		}
 	}
 
-	private void ingreso(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	private void ingreso(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		System.out.println("Entro");
 		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
-		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
+		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoriaByTipo(TipoCategoria.INGRESO);
+		
+		
 		
 		request.setAttribute("cuentas", nombresCuentas);
 		request.setAttribute("categorias",nombreCategorias);
 		
-		response.sendRedirect("jsp/ingreso.jsp");
+		//response.sendRedirect("jsp/ingreso.jsp");
+		request.getRequestDispatcher("jsp/ingreso.jsp").forward(request, response);
 	}
 
-	private void mostrarDashboard(HttpServletRequest request, HttpServletResponse response) {
-		//request.getRequestDispatcher("").forward(request, response);
+	private void mostrarDashboard(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		response.sendRedirect("jsp/dashboard.jsp");
 		
 	}
 
@@ -102,7 +107,7 @@ public class MovimientoController extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
 		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
 		fecha = formatoFecha.parse(request.getParameter("fecha"));
 		
@@ -119,6 +124,7 @@ public class MovimientoController extends HttpServlet {
 
 		DAOFactory.getFactory().getMovimientoDAO().create(ingreso);
 		cuentaDestino.setSaldototal(cuentaDestino.getSaldototal() + monto);
+		System.out.println(cuentaDestino.getSaldototal());
 		DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
 		
 		// 3.- Llamo a la Vista
@@ -126,7 +132,7 @@ public class MovimientoController extends HttpServlet {
 
 	}
 
-	private void registrarGasto(HttpServletRequest request, HttpServletResponse response) throws ParseException {
+	private void registrarGasto(HttpServletRequest request, HttpServletResponse response) throws ParseException, IOException {
 		
 		double monto = Double.parseDouble(request.getParameter("monto"));
 		int idCuentaOrigen= Integer.parseInt(request.getParameter("cuentaOrigen"));

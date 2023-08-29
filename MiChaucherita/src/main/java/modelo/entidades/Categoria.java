@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,11 +29,21 @@ public class Categoria implements Serializable {
 	@Column(name="descripcion")
 	private String descripcion;
 	
+	@Enumerated
+	private TipoCategoria tipo;
+	
+	public TipoCategoria getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoCategoria tipo) {
+		this.tipo = tipo;
+	}
 	public Categoria() {
 		
 	}
-	public Categoria( String descripcion) {
+	public Categoria( String descripcion, TipoCategoria tipo) {
 		this.descripcion = descripcion;
+		this.tipo = tipo;
 	}
 
 
