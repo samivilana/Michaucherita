@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="dashboard.jsp" class="nav-link active">
+                        <a href="../MovimientoController?ruta=mostrarDashboard" class="nav-link active">
                             Inicio
                         </a>
                     </li>
@@ -46,12 +46,12 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="egreso.jsp" class="nav-link active">
+                        <a href="../MovimientoController?ruta=egreso" class="nav-link active">
                             Egreso
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="transferencia.jsp" class="nav-link active">
+                        <a href="../MovimientoController?ruta=transferencia" class="nav-link active">
                             Transferencia
                         </a>
                     </li>
@@ -93,7 +93,7 @@
                         <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="../MovimientoController?ruta=transferencia" style="text-decoration:none;"><p>Transferencia</p></a>
+                                <a href="transferencia.jsp" style="text-decoration:none;"><p>Transferencia</p></a>
                             </div>
                         </div>
                     </div>

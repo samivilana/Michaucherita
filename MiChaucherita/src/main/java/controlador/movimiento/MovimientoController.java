@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -167,8 +168,9 @@ public class MovimientoController extends HttpServlet {
 
 	private void registrarGasto(HttpServletRequest request, HttpServletResponse response) throws ParseException, IOException {
 		
-		double monto = Double.parseDouble(request.getParameter("monto"));
-		int idCuentaOrigen= Integer.parseInt(request.getParameter("cuentaOrigen"));
+		System.out.println("entra");
+		double monto= Double.parseDouble(request.getParameter("monto"));
+		int idCuentaOrigen = Integer.parseInt(request.getParameter("cuentaOrigen"));
 		String descripcion = request.getParameter("descripcion");
 		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
 		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
@@ -189,12 +191,12 @@ public class MovimientoController extends HttpServlet {
 		egreso.setFecha(fecha);
 		egreso.setTipo(TipoMovimiento.GASTO);
 		
-		if(cuentaOrigen.getSaldototal()>=monto) {
+		if(cuentaOrigen.getSaldototal() < monto) {
 			System.out.println("Saldo insuficiente");
 		}
 		
 		DAOFactory.getFactory().getMovimientoDAO().create(egreso);
-		cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
+		cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()- monto);
 		System.out.println(cuentaOrigen.getSaldototal());
 		DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
 		

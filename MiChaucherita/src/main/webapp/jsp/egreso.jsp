@@ -59,10 +59,10 @@
 
 	<div class="form-container">
 		<h1 class="text-center">Registro de Egreso</h1>
-		<form action="MovimientoController?ruta=registraEgreso" method="POST">
+		<form action="MovimientoController?ruta=registrarGasto" method="POST">
 			<div class="form-group">
 				<label for="monto">Monto</label> <input type="text"
-					class="form-control" id="monto" placeholder="Ingrese el monto"
+					class="form-control" id="monto" name="monto" placeholder="Ingrese el monto"
 					required>
 			</div>
 			<div class="form-group">
@@ -95,7 +95,7 @@
 			</div>
 			<div class="form-group">
 				<label for="fecha">Fecha</label> <input type="date"
-					class="form-control" id="fecha" required>
+					class="form-control" id="fecha" name="fecha" required>
 			</div>
 			<div class="d-grid gap-2 col-20 mx-auto">
 				<button class="btn btn-success" type="submit">Registrar
