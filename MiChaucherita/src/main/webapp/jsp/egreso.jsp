@@ -59,7 +59,7 @@
 
 	<div class="form-container">
 		<h1 class="text-center">Registro de Egreso</h1>
-		<form>
+		<form action="MovimientoController?ruta=registraEgreso" method="POST">
 			<div class="form-group">
 				<label for="monto">Monto</label> <input type="text"
 					class="form-control" id="monto" placeholder="Ingrese el monto"
@@ -67,7 +67,7 @@
 			</div>
 			<div class="form-group">
 				<label for="cuentas">Cuentas</label> <select class="form-control"
-					id="cuentas" required>
+					id="cuentas" name="cuentaOrigen" required>
 
 					<option value="" disabled selected>Elige una cuenta</option>
 					<c:forEach items="${cuentas}" var="cuentaOrigen">
@@ -84,7 +84,7 @@
 			</div>
 			<div class="form-group">
 				<label for="categoria">Categoría</label> <select
-					class="form-control" id="categoria" required>
+					class="form-control" id="categoria" name = "categoria" required>
 
 
 					<option value="" disabled selected>Elige una categoría</option>
