@@ -70,8 +70,8 @@
 					id="cuentas" required>
 
 					<option value="" disabled selected>Elige una cuenta</option>
-					<c:forEach items="${cuentas}" var="cuentaDestino">
-						<option value="${cuentaDestino.id}">${cuentaDestino.getNombreCuenta()}</option>
+					<c:forEach items="${cuentas}" var="cuentaOrigen">
+						<option value="${cuentaOrigen.id}">${cuentaOrigen.getNombreCuenta()}</option>
 
 					</c:forEach>
 
@@ -98,7 +98,7 @@
 					class="form-control" id="fecha" required>
 			</div>
 			<div class="d-grid gap-2 col-20 mx-auto">
-				<button class="btn btn-success" type="button">Registrar
+				<button class="btn btn-success" type="submit">Registrar
 					Egreso</button>
 			</div>
 		</form>

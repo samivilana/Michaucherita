@@ -190,10 +190,13 @@ public class MovimientoController extends HttpServlet {
 		egreso.setTipo(TipoMovimiento.GASTO);
 		
 		if(cuentaOrigen.getSaldototal()>=monto) {
-			DAOFactory.getFactory().getMovimientoDAO().create(egreso);
-			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
-			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+			System.out.println("Saldo insuficiente");
 		}
+		
+		DAOFactory.getFactory().getMovimientoDAO().create(egreso);
+		cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
+		System.out.println(cuentaOrigen.getSaldototal());
+		DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
 		
 		// 3.- Llamo a la Vista
 		mostrarDashboard(request, response);
