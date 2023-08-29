@@ -80,7 +80,7 @@
 			<div class="form-group">
 				<label for="descripcion">Descripción</label> <input type="text"
 					class="form-control" id="descripcion"
-					placeholder="Ingrese la descripción" required>
+					placeholder="Ingrese la descripción" name="descripcion" required>
 			</div>
 			<div class="form-group">
 				<label for="categoria">Categoría</label> <select
