@@ -83,7 +83,7 @@
                         <img src="${pageContext.request.contextPath}/img/egresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="egreso.jsp" style="text-decoration:none;"><p>Egreso</p></a>
+                                <a href="../MovimientoController?ruta=egreso" style="text-decoration:none;"><p>Egreso</p></a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                         <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="transferencia.jsp" style="text-decoration:none;"><p>Transferencia</p></a>
+                                <a href="../MovimientoController?ruta=transferencia" style="text-decoration:none;"><p>Transferencia</p></a>
                             </div>
                         </div>
                     </div>
