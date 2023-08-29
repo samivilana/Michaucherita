@@ -97,7 +97,7 @@ public class MovimientoController extends HttpServlet {
 	}
 
 	private void egreso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println("entro");
 		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
 		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoriaByTipo(TipoCategoria.GASTO);
 		
