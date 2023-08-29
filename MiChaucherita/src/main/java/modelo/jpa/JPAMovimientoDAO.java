@@ -40,4 +40,5 @@ public class JPAMovimientoDAO extends JPAGenericDAO<Movimiento, Integer> impleme
 	}
 	
 
+
 }

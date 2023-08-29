@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import exception.MovimientoException;
 import modelo.DAO.DAOFactory;
 import modelo.entidades.Categoria;
 import modelo.entidades.Cuenta;
@@ -64,15 +65,24 @@ public class MovimientoController extends HttpServlet {
 		case "listar":
 			this.listar(request, response);
 			break;
+		case "mostrarDashboard":
+			this.mostrarDashboard(request, response);
+			break;
 		case "error":
 			break;
 		default:
 			break;
-			
+
 		}
 	}
 
-	private void registrarIngreso(HttpServletRequest request, HttpServletResponse response) throws ParseException, ServletException, IOException  {
+	private void mostrarDashboard(HttpServletRequest request, HttpServletResponse response) {
+		//request.getRequestDispatcher("").forward(request, response);
+		
+	}
+
+	private void registrarIngreso(HttpServletRequest request, HttpServletResponse response)
+			throws ParseException, ServletException, IOException {
 		// 1.- Obtener datos que me envían en la solicitud
 		double monto = Double.parseDouble(request.getParameter("monto"));
 		int idCuentaDestino = Integer.parseInt(request.getParameter("cuentaDestino"));
@@ -81,45 +91,120 @@ public class MovimientoController extends HttpServlet {
 		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
 		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
 		Date fecha = null;
-		Movimiento ingreso = new Movimiento();
 		fecha = formatoFecha.parse(request.getParameter("fecha"));
 		
+		// 2.- Llamo al Modelo para obtener datos
+		Movimiento ingreso = new Movimiento();
 		Cuenta cuentaDestino = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaDestino);
-		
+
 		ingreso.setCuentaDestino(cuentaDestino);
 		ingreso.setMonto(monto);
 		ingreso.setDescripcion(descripcion);
 		ingreso.setCategoria(categoria);
 		ingreso.setFecha(fecha);
 		ingreso.setTipo(TipoMovimiento.INGRESO);
-		
+
 		DAOFactory.getFactory().getMovimientoDAO().create(ingreso);
-		cuentaDestino.setSaldototal(cuentaDestino.getSaldototal()+ monto);
+		cuentaDestino.setSaldototal(cuentaDestino.getSaldototal() + monto);
 		DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
 		
+		// 3.- Llamo a la Vista
+		mostrarDashboard(request, response);
+
+	}
+
+	private void registrarGasto(HttpServletRequest request, HttpServletResponse response) throws ParseException {
+		
+		double monto = Double.parseDouble(request.getParameter("monto"));
+		int idCuentaOrigen= Integer.parseInt(request.getParameter("cuentaOrigen"));
+		String descripcion = request.getParameter("descripcion");
+		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
+		Date fecha = null;
+		fecha = formatoFecha.parse(request.getParameter("fecha"));
+		
+		// 2.- Llamo al Modelo para obtener datos
+		
+		Movimiento egreso = new Movimiento();
+		
+		Cuenta cuentaOrigen = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaOrigen);
+
+		egreso.setMonto(monto);
+		egreso.setCuentaOrigen(cuentaOrigen);
+		egreso.setDescripcion(descripcion);
+		egreso.setCategoria(categoria);
+		egreso.setFecha(fecha);
+		egreso.setTipo(TipoMovimiento.GASTO);
+		
+		if(cuentaOrigen.getSaldototal()>monto) {
+			DAOFactory.getFactory().getMovimientoDAO().create(egreso);
+			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
+			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+		}
+		
+		// 3.- Llamo a la Vista
+		mostrarDashboard(request, response);
+
 		
 
 
 	}
 
-	private void registrarGasto(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void registrarTransferencia(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, ParseException {
+		
+		double monto = Double.parseDouble(request.getParameter("monto"));
+		int idCuentaOrigen= Integer.parseInt(request.getParameter("cuentaOrigen"));
+		int idCuentaDestino = Integer.parseInt(request.getParameter("cuentaDestino"));
+		String descripcion = request.getParameter("descripcion");
+		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
+		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
+		Date fecha = null;
+		Movimiento transferencia = new Movimiento();
+		fecha = formatoFecha.parse(request.getParameter("fecha"));
+		
+		// 2.- Llamo al Modelo para obtener datos
+		Cuenta cuentaOrigen = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaOrigen);
+		Cuenta cuentaDestino = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaDestino);
+		if(cuentaOrigen.getId().equals(cuentaDestino)) {
+			
+		}
+
+		transferencia.setMonto(monto);
+		transferencia.setCuentaOrigen(cuentaOrigen);
+		transferencia.setCuentaDestino(cuentaDestino);
+		transferencia.setDescripcion(descripcion);
+		transferencia.setCategoria(categoria);
+		transferencia.setFecha(fecha);
+		
+		if(cuentaOrigen.getSaldototal()>monto) {
+			DAOFactory.getFactory().getMovimientoDAO().create(transferencia);
+			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
+			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+			
+			cuentaDestino.setSaldototal(cuentaDestino.getSaldototal()+monto);
+			DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
+		}
+		
+		// 3.- Llamo a la Vista
+		mostrarDashboard(request, response);
 
 	}
 
-	private void registrarTransferencia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
-	private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.- Obtener datos que me envían en la solicitud
 
 		// 2.- Llamo al Modelo para obtener datos
-		
-		
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
 
 		// 3.- Llamo a la Vista
-		
+		request.setAttribute("cuentas", nombresCuentas);
+		request.setAttribute("categorias", nombreCategorias);
+		;
+		request.getRequestDispatcher("/jsp/ingreso.jsp").forward(request, response);
 
 	}
 
