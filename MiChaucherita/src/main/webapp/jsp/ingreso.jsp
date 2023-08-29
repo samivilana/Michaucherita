@@ -26,37 +26,7 @@
 </head>
 
 <body>
-	<header>
-		<nav class="navbar navbar-expand-sm navbar-dark bg-success">
-			<div class="container">
-				<a href="dashboard.jsp" class="navbar-brand mb-0 h1"> <img
-					class="d-inline-block align-top" src="../img/iconWallet.png"
-					width="30" height="30" alt="wallet-image"> Mi Chaucherita Web
-				</a>
-				<button type="button" data-bs-toggle="collapse"
-					data-bs-target="#navbarNav" class="navbar-toggler"
-					aria-controls="navbarNav" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item active"><a href="dashboard.jsp"
-							class="nav-link active"> Inicio </a></li>
-						<li class="nav-item active"><a href="ingreso.jsp"
-							class="nav-link active"> Ingreso </a></li>
-						<li class="nav-item active"><a href="egreso.jsp"
-							class="nav-link active"> Egreso </a></li>
-						<li class="nav-item active"><a
-							href="transferencia.jsp" class="nav-link active">
-								Transferencia </a></li>
-						<li class="nav-item active"><a href="cuentas.jsp"
-							class="nav-link active"> Cuentas </a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+	<%@include file='../templates/banner.html' %>
 
 	<div class="form-container">
 

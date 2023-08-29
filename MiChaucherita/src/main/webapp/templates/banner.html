@@ -5,12 +5,47 @@
 <title>Insert title here</title>
 </head>
 <body>
-	    <nav class="navbar">
-		<div class="container-fluid d-inline">
-            <i class="fa-solid fa-wallet fa-2xl" style="color: #ffffff;"></i>
-			<span class="navbar-brand mb-0 h1 titulo">Mi Chaucherita</span>
-		</div>
-	</nav>
-
+	     <nav class="navbar navbar-expand-sm navbar-dark bg-success">
+        <div class="container">
+            <a href="dashboard.jsp" class="navbar-brand mb-0 h1">
+                <img class="d-inline-block align-top" src="${pageContext.request.contextPath}/img/iconWallet.png" width="30" height="30"
+                    alt="wallet-image">
+                Mi Chaucherita Web
+            </a>
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="../MovimientoController?ruta=mostrarDashboard" class="nav-link active">
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="ingreso.jsp" class="nav-link active">
+                            Ingreso
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="egreso.jsp" class="nav-link active">
+                            Egreso
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="transferencia.jsp" class="nav-link active">
+                            Transferencia
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="cuentas.jsp" class="nav-link active">
+                            Cuentas
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </body>
 </html>
