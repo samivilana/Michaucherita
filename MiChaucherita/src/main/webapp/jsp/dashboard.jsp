@@ -73,7 +73,7 @@
                         <img src="${pageContext.request.contextPath}/img/ingresos.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="ingreso.jsp" style="text-decoration:none;"><p>Ingreso</p></a>
+                                <a href="../MovimientoController?ruta=ingreso" style="text-decoration:none;"><p>Ingreso</p></a>
                             </div>
                         </div>
                     </div>

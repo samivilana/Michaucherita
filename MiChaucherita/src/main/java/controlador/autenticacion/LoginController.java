@@ -91,14 +91,14 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("usuarioLogeado", personaAutenticada);
 			System.out.println("LA PERSONA FUE AUTORIZADA");
 			//Llamo al modelo para obtener los datos
-			List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
-			List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
+			
 			
 			
 			// 3.- Llamo a la Vista
 			//response.sendRedirect("GestorPersonaController?ruta=listar");
 			// request.getRequestDispatcher("ListarPersonaController").forward(request,
-			// response);			
+			// response);
+			
 			
 			response.sendRedirect("jsp/dashboard.jsp");
 			return;

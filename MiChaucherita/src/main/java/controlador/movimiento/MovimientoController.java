@@ -68,12 +68,25 @@ public class MovimientoController extends HttpServlet {
 		case "mostrarDashboard":
 			this.mostrarDashboard(request, response);
 			break;
+		case "ingreso":
+			this.ingreso(request, response);
+			break;
 		case "error":
 			break;
 		default:
 			break;
 
 		}
+	}
+
+	private void ingreso(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoria();
+		
+		request.setAttribute("cuentas", nombresCuentas);
+		request.setAttribute("categorias",nombreCategorias);
+		
+		response.sendRedirect("jsp/ingreso.jsp");
 	}
 
 	private void mostrarDashboard(HttpServletRequest request, HttpServletResponse response) {

@@ -72,10 +72,8 @@
 			</div>
 			<div class="form-group">
 				<label for="cuentas">Cuentas</label> <select class="form-control"
-					id="cuentas" name="cuentaDestino" required>
-					
-					 <option> Pichincha </option>
-                    <option> Efectivo </option>
+					id="cuentas" name="cuentaDestino" required>				
+					 
                  <option value="" disabled selected >Elige una cuenta</option>
 					<c:forEach items = "${cuentas}" var ="cuentaDestino">
 						<option value = "${cuentaDestino.id}">${cuentaDestino.getNombreCuenta()}</option>
@@ -92,10 +90,7 @@
 			<div class="form-group">
 				<label for="categoria">Categoría</label> <select
 					class="form-control" id="categoria" name = "categoria" required>
-				 <option> Salud </option>
-                    <option> Eduación </option>
-                    <option> Transporte </option>
-                    <option> Alimentación </option>
+				 <option> Salud </option>                    
                     <option value="" disabled selected>Elige una categoría</option>
 					<c:forEach items="${categorias}" var="categoria">
 						<option value ="${categoria.id}">${categoria.descripcion}</option>
