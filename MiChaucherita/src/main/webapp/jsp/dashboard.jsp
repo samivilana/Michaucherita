@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="ingreso.jsp" class="nav-link active">
+                        <a href="../MovimientoController?ruta=ingreso" class="nav-link active">
                             Ingreso
                         </a>
                     </li>
