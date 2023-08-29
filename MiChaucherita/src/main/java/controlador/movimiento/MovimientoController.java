@@ -63,9 +63,7 @@ public class MovimientoController extends HttpServlet {
 		case "registrarTransferencia":
 			this.registrarTransferencia(request, response);
 			break;
-		case "listar":
-			this.listar(request, response);
-			break;
+
 		case "mostrarDashboard":
 			this.mostrarDashboard(request, response);
 			break;
@@ -86,6 +84,11 @@ public class MovimientoController extends HttpServlet {
 		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoriaByTipo(TipoCategoria.INGRESO);
 		
 		
+		
+		for (Cuenta cuenta : nombresCuentas) {
+			System.out.println(cuenta);
+			
+		}
 		
 		request.setAttribute("cuentas", nombresCuentas);
 		request.setAttribute("categorias",nombreCategorias);
@@ -211,7 +214,7 @@ public class MovimientoController extends HttpServlet {
 		mostrarDashboard(request, response);
 
 	}
-
+/*
 	private void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1.- Obtener datos que me envían en la solicitud
 
@@ -225,6 +228,6 @@ public class MovimientoController extends HttpServlet {
 		;
 		request.getRequestDispatcher("/jsp/ingreso.jsp").forward(request, response);
 
-	}
+	}*/
 
 }
