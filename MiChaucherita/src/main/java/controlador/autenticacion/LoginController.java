@@ -98,9 +98,7 @@ public class LoginController extends HttpServlet {
 			// 3.- Llamo a la Vista
 			//response.sendRedirect("GestorPersonaController?ruta=listar");
 			// request.getRequestDispatcher("ListarPersonaController").forward(request,
-			// response);
-			request.setAttribute("cuentas", nombresCuentas);
-			request.setAttribute("categorias",nombreCategorias);;
+			// response);			
 			
 			response.sendRedirect("jsp/dashboard.jsp");
 			return;
