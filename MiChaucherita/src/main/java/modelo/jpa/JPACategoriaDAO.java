@@ -34,7 +34,9 @@ public class JPACategoriaDAO extends JPAGenericDAO<Categoria, Integer> implement
 		if(tipo == TipoCategoria.INGRESO) {
 			jpql = "SELECT t FROM Categoria t where t.tipo = :tipo";
 		}
-		
+		if(tipo == TipoCategoria.TRANSFERENCIA) {
+			jpql = "SELECT t FROM Categoria t where t.tipo = :tipo";
+		}
 	    Query query = em.createQuery(jpql);
 	    query.setParameter("tipo", tipo);
 	    List<Categoria> categorias = query.getResultList();

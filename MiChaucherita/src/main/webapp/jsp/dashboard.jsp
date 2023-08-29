@@ -22,7 +22,7 @@
 </head>
 <body>
 
- 	<%@include file='../templates/banner.html' %>
+ 	<%@include file='../templates/banner_inside.html' %>
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
 
@@ -52,7 +52,7 @@
                         <img src="${pageContext.request.contextPath}/img/transferencias.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href="transferencia.jsp" style="text-decoration:none;"><p>Transferencia</p></a>
+                                <a href="../MovimientoController?ruta=transferencia" style="text-decoration:none;"><p>Transferencia</p></a>
                             </div>
                         </div>
                     </div>
