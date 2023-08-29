@@ -48,10 +48,10 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID>{
 	public void delete(T entity) {
 		em.getTransaction().begin();
 		try {
-			em.merge(entity);
+			em.remove(entity);
 			em.getTransaction().commit();
 		}catch (Exception e) {
-			System.err.println("error de actualizacion");
+			System.out.println("Error de insercion");
 			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}
@@ -74,7 +74,7 @@ public class JPAGenericDAO<T, ID> implements GenericDAO<T, ID>{
 			em.merge(entity);
 			em.getTransaction().commit();
 		}catch (Exception e) {
-			
+			System.err.println("error de actualizacion");
 			if(em.getTransaction().isActive()) {
 				em.getTransaction().rollback();
 			}

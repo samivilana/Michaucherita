@@ -70,12 +70,42 @@ public class MovimientoController extends HttpServlet {
 		case "ingreso":
 			this.ingreso(request, response);
 			break;
+		case "egreso":
+			this.egreso(request, response);
+			break;
+		case "transferencia":
+			this.transferencia(request, response);
+			break;	
+		
 		case "error":
 			break;
 		default:
 			break;
 
 		}
+	}
+
+	private void transferencia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoriaByTipo(TipoCategoria.TRANSFERENCIA);
+		
+		request.setAttribute("cuentas", nombresCuentas);
+		request.setAttribute("categorias",nombreCategorias);
+
+		request.getRequestDispatcher("jsp/transferencia.jsp").forward(request, response);
+		
+	}
+
+	private void egreso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		List<Categoria> nombreCategorias = DAOFactory.getFactory().getCategoriaDAO().listarCategoriaByTipo(TipoCategoria.GASTO);
+		
+		request.setAttribute("cuentas", nombresCuentas);
+		request.setAttribute("categorias",nombreCategorias);
+
+		request.getRequestDispatcher("jsp/egreso.jsp").forward(request, response);
+		
 	}
 
 	private void ingreso(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -142,7 +172,7 @@ public class MovimientoController extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
 		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
 		fecha = formatoFecha.parse(request.getParameter("fecha"));
 		
@@ -159,7 +189,7 @@ public class MovimientoController extends HttpServlet {
 		egreso.setFecha(fecha);
 		egreso.setTipo(TipoMovimiento.GASTO);
 		
-		if(cuentaOrigen.getSaldototal()>monto) {
+		if(cuentaOrigen.getSaldototal()>=monto) {
 			DAOFactory.getFactory().getMovimientoDAO().create(egreso);
 			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
 			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
@@ -182,7 +212,7 @@ public class MovimientoController extends HttpServlet {
 		String descripcion = request.getParameter("descripcion");
 		int idCategoria = Integer.parseInt(request.getParameter("categoria"));
 		Categoria categoria = DAOFactory.getFactory().getCategoriaDAO().getById(idCategoria);
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/mm/aaaa");
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
 		Date fecha = null;
 		Movimiento transferencia = new Movimiento();
 		fecha = formatoFecha.parse(request.getParameter("fecha"));
@@ -190,8 +220,8 @@ public class MovimientoController extends HttpServlet {
 		// 2.- Llamo al Modelo para obtener datos
 		Cuenta cuentaOrigen = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaOrigen);
 		Cuenta cuentaDestino = DAOFactory.getFactory().getCuentaDAO().getById(idCuentaDestino);
-		if(cuentaOrigen.getId().equals(cuentaDestino)) {
-			
+		if(cuentaOrigen.getId().equals(cuentaDestino.getId())) {
+			System.out.println("error misma cuenta");
 		}
 
 		transferencia.setMonto(monto);
