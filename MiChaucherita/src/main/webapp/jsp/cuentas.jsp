@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,50 +13,7 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-success">
-            <div class="container">
-                <a href="#" class="navbar-brand mb-0 h1">
-                    <img class="d-inline-block align-top" src="../img/iconWallet.png" width="30" height="30"
-                        alt="wallet-image">
-                    Mi Chaucherita Web
-                </a>
-                <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a href="dashboard.jsp" class="nav-link active">
-                                Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="ingreso.jsp" class="nav-link active">
-                                Ingreso
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="egreso.jsp" class="nav-link active">
-                                Egreso
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="transferencia.jsp" class="nav-link active">
-                                Transferencia
-                            </a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="cuentas.jsp" class="nav-link active">
-                                Cuentas
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <%@include file='../templates/banner.html' %>
 
     <div class="container mt-5">
         <form class="container-fluid ">
@@ -82,24 +40,28 @@
             <table class="table table-bordered-sm table-rounded-lg shadow">
                 <thead>
                     <tr class="table-success">
-                        <th colspan="4" class="text-center">Movimientos</th>
+                        <th colspan="5" class="text-center">Movimientos</th>
                     </tr>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Movimientos - Transferencia</th>
-                        <th scope="col">Movimientos - Gastos</th>
-                        <th scope="col">Movimientos - Ingreso</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Monto</th>
                     </tr>
                     
-                   
+                </thead>
+                
+                <tbody class="table-group-divider">
+	                <c:forEach items = "${movimientos}" var ="movimiento">							
+							<tr>
+		                        <th scope="row">${movimiento.id}</th>
+		                        <td>${movimiento.fecha}</td>
+		                        <td>${movimiento.descripcion}</td>
+		                        <td>${movimiento.tipo}</td>
+		                        <td>${movimiento.monto}</td>		                        
+		                    </tr>
+					</c:forEach>                   
                 </tbody>
             </table>
         </div>
@@ -112,20 +74,18 @@
                     </tr>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Pichincha</th>
-                        <th scope="col">Efectivo</th>
-                        <th scope="col">Guayaquil</th>
+                        <th scope="col">Cuenta</th>
+                        <th scope="col">Saldo</th>                        
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-               
-                   
+	                <c:forEach items = "${cuentas}" var ="cuenta">							
+							<tr>
+		                        <th scope="row">${cuenta.id}</th>
+		                        <td>${cuenta.nombreCuenta}</td>
+		                        <td>${cuenta.saldototal}</td>		                       		                        
+		                    </tr>
+					</c:forEach>                   
                 </tbody>
             </table>
         </div>

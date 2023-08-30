@@ -62,7 +62,7 @@
                         <img src="${pageContext.request.contextPath}/img/cuentas.png" class="card-body" alt="img-cuentas">
                         <div class="card-body">
                             <div class="overlay">
-                                <a href=""><p>Cuentas</p></a>
+                                <a href="../MovimientoController?ruta=mostrarMovimientos"><p>Cuentas</p></a>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import modelo.DAO.MovimientoDAO;
+import modelo.entidades.Cuenta;
 import modelo.entidades.Movimiento;
 import modelo.entidades.TipoMovimiento;
 
@@ -13,6 +14,11 @@ public class JPAMovimientoDAO extends JPAGenericDAO<Movimiento, Integer> impleme
 	public JPAMovimientoDAO() {
 		super(Movimiento.class);
 	
+	}
+	public List<Movimiento> getMovimientos(){
+		String sentencia = "SELECT m FROM Movimiento m";		
+		Query query = em.createQuery(sentencia);		
+		return query.getResultList();		
 	}
 	
 	public List<Movimiento> getMovimientosIngreso(){

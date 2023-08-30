@@ -76,13 +76,24 @@ public class MovimientoController extends HttpServlet {
 			break;
 		case "transferencia":
 			this.transferencia(request, response);
-			break;	
-		
+			break;
+		case "mostrarMovimientos":
+			this.mostrarMovimientos(request, response);
 		case "error":
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void mostrarMovimientos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Movimiento> movimientos = DAOFactory.getFactory().getMovimientoDAO().getMovimientos();
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		
+		request.setAttribute("movimientos", movimientos);
+		request.setAttribute("cuentas",nombresCuentas);
+		
+		request.getRequestDispatcher("jsp/cuentas.jsp").forward(request, response);
 	}
 
 	private void transferencia(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -234,6 +245,7 @@ public class MovimientoController extends HttpServlet {
 		transferencia.setDescripcion(descripcion);
 		transferencia.setCategoria(categoria);
 		transferencia.setFecha(fecha);
+		transferencia.setTipo(TipoMovimiento.TRANSFERENCIA);
 		
 		if(cuentaOrigen.getSaldototal()>monto) {
 			DAOFactory.getFactory().getMovimientoDAO().create(transferencia);
