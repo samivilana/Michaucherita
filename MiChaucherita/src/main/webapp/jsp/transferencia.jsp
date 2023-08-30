@@ -30,42 +30,49 @@
 
     <div class="form-container">
         <h1 class="text-center">Registro de Transferencia</h1>
-        <form>
+        <form action="MovimientoController?ruta=registrarTransferencia" method="POST">
             <div class="form-group">
                 <label for="monto">Monto</label>
-                <input type="text" class="form-control" id="monto" placeholder="Ingrese el monto" required>
+                <input type="text" class="form-control" id="monto" name="monto" placeholder="Ingrese el monto" required>
             </div>
             <div class="form-group">
                 <label for="cuentas">Cuenta Origen</label>
-                <select class="form-control" id="cuentas" required>
+                <select class="form-control" id="cuentas" name="cuentaOrigen" required>
                     <option value="" disabled selected>Elige una cuenta</option>
-                   
+                   	<c:forEach items="${cuentas}" var="cuentaOrigen">
+						<option value="${cuentaOrigen.id}">${cuentaOrigen.nombreCuenta}</option>
+					</c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label for="cuentas">Cuenta Destino</label>
-                <select class="form-control" id="cuentas" required>
+                <select class="form-control" id="cuentas" name="cuentaDestino" required>
                     <option value="" disabled selected>Elige una cuenta</option>
+                    <c:forEach items="${cuentas}" var="cuentaDestino">
+						<option value="${cuentaDestino.id}">${cuentaDestino.nombreCuenta}</option>
+					</c:forEach>
                   
                 </select>
             </div>
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripción" required>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la descripción" required>
             </div>
             <div class="form-group">
                 <label for="categoria">Categoría</label>
-                <select class="form-control" id="categoria" required>
+                <select class="form-control" id="categoria" name="categoria" required>
                     <option value="" disabled selected>Elige una categoría</option>
-                   
+                  	<c:forEach items="${categorias}" var="categoria">
+						<option value="${categoria.id}">${categoria.descripcion}</option>
+					</c:forEach>
                 </select>
             </div>
             <div class="form-group">
                 <label for="fecha">Fecha</label>
-                <input type="date" class="form-control" id="fecha" required>
+                <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
             <div class="d-grid gap-2 col-20 mx-auto">
-                <button class="btn btn-success" type="button">Registrar Transferencia</button>
+                <button class="btn btn-success" type="submit">Registrar Transferencia</button>
             </div>
         </form>
     </div>

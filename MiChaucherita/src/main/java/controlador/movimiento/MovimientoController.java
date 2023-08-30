@@ -1,4 +1,4 @@
-package controlador.movimiento;
+	package controlador.movimiento;
 
 import java.io.IOException;
 import java.util.Date;
@@ -82,7 +82,6 @@ public class MovimientoController extends HttpServlet {
 			break;
 		default:
 			break;
-
 		}
 	}
 
@@ -210,8 +209,8 @@ public class MovimientoController extends HttpServlet {
 
 	private void registrarTransferencia(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException, ParseException {
-		
-		double monto = Double.parseDouble(request.getParameter("monto"));
+		System.out.println("entro");
+		double monto = Double.valueOf(request.getParameter("monto"));
 		int idCuentaOrigen= Integer.parseInt(request.getParameter("cuentaOrigen"));
 		int idCuentaDestino = Integer.parseInt(request.getParameter("cuentaDestino"));
 		String descripcion = request.getParameter("descripcion");

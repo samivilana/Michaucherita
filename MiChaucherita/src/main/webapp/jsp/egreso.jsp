@@ -32,9 +32,8 @@
 		<h1 class="text-center">Registro de Egreso</h1>
 		<form action="MovimientoController?ruta=registrarGasto" method="POST">
 			<div class="form-group">
-				<label for="monto">Monto</label> <input type="text"
-					class="form-control" id="monto" name="monto" placeholder="Ingrese el monto"
-					required>
+				<label for="monto">Monto</label>
+				<input type="text" class="form-control" id="monto" name="monto" placeholder="Ingrese el monto"	required>
 			</div>
 			<div class="form-group">
 				<label for="cuentas">Cuentas</label> <select class="form-control"
