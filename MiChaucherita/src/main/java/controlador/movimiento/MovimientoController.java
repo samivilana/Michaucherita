@@ -235,17 +235,22 @@ public class MovimientoController extends HttpServlet {
 		egreso.setFecha(fecha);
 		egreso.setTipo(TipoMovimiento.GASTO);
 		
-		if(cuentaOrigen.getSaldototal() < monto) {
-			System.out.println("Saldo insuficiente");
+		if(cuentaOrigen.getSaldototal() > monto) {
+			//System.out.println("Saldo insuficiente");
+			DAOFactory.getFactory().getMovimientoDAO().create(egreso);
+			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()- monto);
+			System.out.println(cuentaOrigen.getSaldototal());
+			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+			
+			mostrarDashboard(request, response);
+		}else {
+			response.sendRedirect("jsp/errorsaldo.jsp");
 		}
 		
-		DAOFactory.getFactory().getMovimientoDAO().create(egreso);
-		cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()- monto);
-		System.out.println(cuentaOrigen.getSaldototal());
-		DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
+		
 		
 		// 3.- Llamo a la Vista
-		mostrarDashboard(request, response);
+			
 
 		
 
@@ -288,10 +293,13 @@ public class MovimientoController extends HttpServlet {
 			
 			cuentaDestino.setSaldototal(cuentaDestino.getSaldototal()+monto);
 			DAOFactory.getFactory().getCuentaDAO().update(cuentaDestino);
+			mostrarDashboard(request, response);
+		}else {
+			response.sendRedirect("jsp/errorsaldo.jsp");
 		}
 		
 		// 3.- Llamo a la Vista
-		mostrarDashboard(request, response);
+		
 
 	}
 /*
