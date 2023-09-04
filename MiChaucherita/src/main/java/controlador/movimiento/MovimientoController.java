@@ -79,11 +79,44 @@ public class MovimientoController extends HttpServlet {
 			break;
 		case "mostrarMovimientos":
 			this.mostrarMovimientos(request, response);
+			break;
+		case "mostrarMovimientosbyFecha":
+			this.mostrarMovimientosByFecha(request, response);
+			break;
+		case "mostrarMovimientosbyTipo":
+			this.mostrarMovimeintosByTipo(request, response);
+			break;
 		case "error":
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void mostrarMovimeintosByTipo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String tipoMovimiento = request.getParameter("tipoMov");
+		System.out.println("Entro");
+		
+		List<Movimiento> movimientosTipo = DAOFactory.getFactory().getMovimientoDAO().getMovimientoByTipo(tipoMovimiento);
+		
+		for (Movimiento movimiento : movimientosTipo) {
+			System.out.println(movimiento);
+		}
+		request.setAttribute("movimientos", movimientosTipo);
+		request.getRequestDispatcher("jsp/cuentas.jsp").forward(request, response);
+		
+	}
+
+	private void mostrarMovimientosByFecha(HttpServletRequest request, HttpServletResponse response) throws ParseException, ServletException, IOException {
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
+		Date fecha = formatoFecha.parse(request.getParameter("fecha"));
+		
+		List<Movimiento> movimietosFecha = DAOFactory.getFactory().getMovimientoDAO().getMovimientosByFecha(fecha);
+		List<Cuenta> nombresCuentas = DAOFactory.getFactory().getCuentaDAO().listarCuentas();
+		request.setAttribute("cuentas",nombresCuentas);
+		
+		request.setAttribute("movimientos", movimietosFecha);
+		request.getRequestDispatcher("jsp/cuentas.jsp").forward(request, response);
 	}
 
 	private void mostrarMovimientos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,6 +125,7 @@ public class MovimientoController extends HttpServlet {
 		
 		request.setAttribute("movimientos", movimientos);
 		request.setAttribute("cuentas",nombresCuentas);
+		
 		
 		request.getRequestDispatcher("jsp/cuentas.jsp").forward(request, response);
 	}
