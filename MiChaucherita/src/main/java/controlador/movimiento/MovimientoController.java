@@ -235,7 +235,7 @@ public class MovimientoController extends HttpServlet {
 		egreso.setFecha(fecha);
 		egreso.setTipo(TipoMovimiento.GASTO);
 		
-		if(cuentaOrigen.getSaldototal() > monto) {
+		if(cuentaOrigen.getSaldototal() >= monto) {
 			//System.out.println("Saldo insuficiente");
 			DAOFactory.getFactory().getMovimientoDAO().create(egreso);
 			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()- monto);
@@ -286,7 +286,7 @@ public class MovimientoController extends HttpServlet {
 		transferencia.setFecha(fecha);
 		transferencia.setTipo(TipoMovimiento.TRANSFERENCIA);
 		
-		if(cuentaOrigen.getSaldototal()>monto) {
+		if(cuentaOrigen.getSaldototal()>=monto) {
 			DAOFactory.getFactory().getMovimientoDAO().create(transferencia);
 			cuentaOrigen.setSaldototal(cuentaOrigen.getSaldototal()-monto);
 			DAOFactory.getFactory().getCuentaDAO().update(cuentaOrigen);
